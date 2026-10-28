@@ -1,0 +1,62 @@
+;; /test/example.jasm
+!CLASS::
+!RODATA:: ;; this section will be going to external burned binary files.(Thats on my plan. Read-only, no reflection.) The reason that I made this section is reduce t waste of meta space of jvm.
+
+!DATA::
+    a string, "Hello world"
+    b int, 4
+    c char, "a", "b", "c"
+
+!BSS:: ;;for const vals? But .class file doesnt have that do.
+
+
+pub static final Hello::
+
+mov r1, 1
+mov r2, 2
+mov r3, 100
+
+
+Hello: ; <- 라벨링
+mov r4, a
+mov r10, r3
+mov r13, r2
+ret
+
+loop_start::
+cmp r4, 1
+jge loop_end
+jl is_small
+
+is_small::
+....
+
+loop_end::
+
+mov 55, a
+call Hello
+
+Array::
+movm r10 0xC0001 ; 오프힙 주소
+
+
+
+
+; 1. 하드웨어 물리 주소 연산 (Base, Index, Stride, Offset)
+movm i32 r1, 0x7FFF0000  ; r1 = Base 주소 (long)
+mov r2, 5           ; r2 = Index (5번째 요소)
+
+    ; 주소 계산: r3 = r1 + (r2 * 8) + 4
+calc_addr r3, r1, r2, 8, 4  ; r3에 최종 타겟 물리 주소(long)가 저장됨
+
+    ; 2. C++ 스타일 포인터 쓰기 (*p = 100)
+    ; r3 주소가 가리키는 메모리 공간에 int 값 100을 직접 찌릅니다.
+movm i64 [r3], 100
+
+    ; 3. C++ 스타일 포인터 읽기 (int value = *p)
+    ; r3 주소에 있는 값을 읽어서 r4 레지스터에 로드합니다.
+movm i64 r4, [r3]
+
+
+
+
