@@ -1,10 +1,10 @@
 package J
 
 class ByteMatch {
-  var hasError: Boolean
+  var hasError =  0
   
   def matching(): Unit = {
-    for (x < )
+    
   }
   
 

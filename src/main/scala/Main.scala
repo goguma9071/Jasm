@@ -1,5 +1,4 @@
-import lexer.reader
-import lexer.LexerMain
+import lexer.{LexerMain, reader}
 import os.{Path, RelPath}
 object Main {
   def main(args: Array[String]): Unit = {

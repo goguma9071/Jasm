@@ -38,7 +38,7 @@ Treturn 	  	  	ireturn 	lreturn 	freturn 	dreturn 	  	areturn
 
 
 
-
+/*
 //TiPush
 case class bipush(dst: Byte); case class sipush(dst: Short)
 case class iconst(dst: Int); case class lconst(dst: Long)
@@ -67,3 +67,4 @@ enum Tcmpl
 enum Tcmpg
 enum if_TcmpOP
 enum Treturn
+*/

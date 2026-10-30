@@ -36,37 +36,49 @@ Treturn 	  	  	ireturn 	lreturn 	freturn 	dreturn 	  	areturn
 *
 * */
 
-
-enum Token {
-  case LEFT
-  case RIGHT
-  case RODATA
-  case DATA
-  case CLASS
-  case FUNCTION
+class Token {
   
-}
+  case class FUNCTION(name: Token, body: Token)
 
-enum TokenByte {
-  case ipush; case bipush; case sipush
-  case iconst; case lconst; case fconst; case dconst; case aconst
-  case iload; case lload; case fload; case dload; case aload
-  case istore; case lstore; case fstore; case dstore; case astore
-  case iinc
-  case baload; case saload; case iaload; case laload; case faaload; case daload; case caload; case aaload;
-  case bastore; case sastore; case iastore; case lastore; case fastore; case dastore; case castore; case aastore
-  case iadd; case ladd; case fadd; case dadd
-  case isub; case lsub; case fsub; case dsub
-  case imul; case lmul; case fmul; case dmul
-  case ineg; case lneg; case fneg; case dneg
-  case ishl; case dshl
-  case iushr; case lushr
-  case iand; case land;
-  case ior; case lor;
-  case ixor; case lxor;
-  case i2b; case i2s; case i2l; case i2f; case i2d; case i2c;
-  case f21; case f2l; case f2d;
-  case d2i; case d2l; case d2f;
-  case lcmp
-  case f
+  enum Token {
+    case NUMBER
+    case RODATA // for jpp, saving metaspace memory.
+    case DATA
+    case CLASS_NAME
+    case CLASS_ACCESS
+    case BSS // for jpp const?
+    case FUNC_NAME //function name
+    case FUNC_ACCESS
+    case FUNC_TYPE
+    //case FUNC_BODY
+    case LABEL
+    case COLON
+    case DOUBLECOLON
+    case SEMICOLON
+  }
+
+  // i think those enums are useless!
+  enum TokenByte {
+    case ipush; case bipush; case sipush
+    case iconst; case lconst; case fconst; case dconst; case aconst
+    case iload; case lload; case fload; case dload; case aload
+    case istore; case lstore; case fstore; case dstore; case astore
+    case iinc
+    case baload; case saload; case iaload; case laload; case faaload; case daload; case caload; case aaload;
+    case bastore; case sastore; case iastore; case lastore; case fastore; case dastore; case castore; case aastore
+    case iadd; case ladd; case fadd; case dadd
+    case isub; case lsub; case fsub; case dsub
+    case imul; case lmul; case fmul; case dmul
+    case ineg; case lneg; case fneg; case dneg
+    case ishl; case dshl
+    case iushr; case lushr
+    case iand; case land;
+    case ior; case lor;
+    case ixor; case lxor;
+    case i2b; case i2s; case i2l; case i2f; case i2d; case i2c;
+    case f21; case f2l; case f2d; case d2i; case d2l; case d2f;
+    case lcmp
+    case fcmpl; case dcmpl
+  }
+
 }

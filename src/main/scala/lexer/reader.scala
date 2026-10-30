@@ -2,9 +2,12 @@ package lexer
 
 import io.Source
 import scala.collection.mutable
-import os._
+import os.*
+import J.Token
 
 class reader(val fileAddr: String) {
+  
+  final val byteoken = new Token
 
   var pointer = 0
 
@@ -22,11 +25,16 @@ class reader(val fileAddr: String) {
     val fileLine = os.read.lines(pwd/RelPath(fileAddr)).length
     fileLine
   }
+  def peek(pos: Int): Unit = {
+    readLine()
+  }
   def parse(): Any = {
-    val text = readLine()
-    while pointer <= text.length
-      do {
+    val text = readLine().toList
+    for(i <- pointer to text.length) {
+      pointer += 1
+      
     }
+    
 
   }
 

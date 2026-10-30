@@ -1,8 +1,8 @@
 ;; /test/example.jasm
-!CLASS::
+!CLASS:: Example, pub
 !RODATA:: ;; this section will be going to external burned binary files.(Thats on my plan. Read-only, no reflection.) The reason that I made this section is reduce t waste of meta space of jvm.
 
-!DATA::
+!DATA:
     a string, "Hello world"
     b int, 4
     c char, "a", "b", "c"
@@ -23,15 +23,15 @@ mov r10, r3
 mov r13, r2
 ret
 
-loop_start::
+loop_start:
 cmp r4, 1
 jge loop_end
 jl is_small
 
-is_small::
+is_small:
 ....
 
-loop_end::
+loop_end:
 
 mov 55, a
 call Hello
