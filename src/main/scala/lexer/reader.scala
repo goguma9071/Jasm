@@ -25,17 +25,5 @@ class reader(val fileAddr: String) {
     val fileLine = os.read.lines(pwd/RelPath(fileAddr)).length
     fileLine
   }
-  def peek(pos: Int): Unit = {
-    readLine()
-  }
-  def parse(): Any = {
-    val text = readLine().toList
-    for(i <- pointer to text.length) {
-      pointer += 1
-      
-    }
-    
-
-  }
 
 }
