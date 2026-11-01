@@ -10,7 +10,7 @@ object Main {
 
       args match {
         case Array("help") => println("Usage..")
-        case Array("compile") => LexerMain
+        //case Array("compile") => LexerMain()
       }
 
     }

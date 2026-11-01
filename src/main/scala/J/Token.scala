@@ -80,5 +80,9 @@ class Token {
     case lcmp
     case fcmpl; case dcmpl
   }
+  case class iload(dst: String) {
+    dst.toInt
+  
+  }
 
 }

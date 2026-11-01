@@ -1,8 +1,13 @@
 package lexer
+import parser._
 
-object LexerMain {
-
-  val JExtender = ".J"
-  val JasmExtender = ".jasm"
-
+class LexerMain(val isJasm: Boolean) {
+  
+  def chooseLex(): Unit = {
+    if (isJasm) {
+      Jasmparser()
+    } else {
+      Jparser()
+    }
+  }
 }
