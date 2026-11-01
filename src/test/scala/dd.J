@@ -3,4 +3,9 @@
 TYPE INT DATANAME "a" DATA_VALUE
 
 FUN_ACCESS "public" FUN_NAME "Example":
-iload a
+
+ldc
+
+iload
+
+iload

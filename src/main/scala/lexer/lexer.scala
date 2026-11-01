@@ -1,9 +1,12 @@
 package lexer
 
-import J._
-import lexer.FReader
+import J.*
+import J.BytecodeCase.{IAdd, ISub}
 
+import java.lang.classfile.*
 import java.util
+import scala.::
+import scala.collection.mutable.ListBuffer
 import scala.util.control.Breaks.*
 
 
@@ -13,14 +16,15 @@ class lexer(val par: java.lang.String) {
   private val Par = par.charAt(pointer)
   private var start = 0
   private var stack = 0
-  private val tokens = new util.ArrayList[Token]()
+
+  val inst: ListBuffer[BytecodeCase.BytecodeInstruction]
 
 
   private def peek(): Char = {
     val peek = par.charAt(pointer + 1)
     peek
   }
-  
+
 
   private def nextlex(): String = {
     if (!Character.isWhitespace(peek())) {
@@ -41,19 +45,17 @@ class lexer(val par: java.lang.String) {
         pointer += 1
         if (Character.isWhitespace(peek())) {
           val c = par.substring(start, pointer)
+          if (!Character.isWhitespace(peek())) {
+            c match {
+              case "iadd" => inst += IAdd
+              case "isub" => inst += ISub
+            }
+          } else { println("Illegal syntax: No value for Op") }
 
-          
-            if (!Character.isWhitespace(peek())) {
-              c match {
-                case "iadd" => Jcase.iadd(nextlex())
-                case "isub" => Jcase.isub(nextlex())
-              }
-            } else { println("Illegal syntax: No value for Op") }
-            
           }
           break()
         }
-      
+
     }
   }
 }

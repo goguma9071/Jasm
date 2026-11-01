@@ -8,11 +8,14 @@ import java.lang.constant.ConstantDescs.*
 
 object ByteGen {
 
-  def genmethod(name: String, MtdFlag: ConstantDescs, args ): ClassBuilder = {
+  def genmethod(name: String, MtdFlag: ClassDesc, args: ClassDesc, accessFlag: AccessFlag): ClassBuilder = {
     (mlb: ClassBuilder) => {
       mlb.withMethodBody(
         name,
-        MethodTypeDesc.of(CD_void, )
+        MethodTypeDesc.of(MtdFlag, args),
+        accessFlag,
+        code => {}
+        
 
 
       )
