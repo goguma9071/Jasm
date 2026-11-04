@@ -1,7 +1,7 @@
 package lexer
 
 import J.*
-import J.BytecodeCase.{IAdd, ISub}
+import J.BytecodeCase.{AConstNull, IAdd, ISub}
 
 import java.lang.classfile.*
 import java.util
@@ -47,6 +47,8 @@ class lexer(val par: java.lang.String) {
           val c = par.substring(start, pointer)
           if (!Character.isWhitespace(peek())) {
             c match {
+              case "nop" => inst += BytecodeCase.Nop
+              case "aconstnull" => inst += AConstNull
               case "iadd" => inst += IAdd
               case "isub" => inst += ISub
             }

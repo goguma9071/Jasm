@@ -10,99 +10,99 @@ object BytecodeCase {
   // ==========================================
   // 1. Constants (상수 푸시 명령어)
   // ==========================================
-  case object Nop extends BytecodeInstruction
-  case object AConstNull extends BytecodeInstruction
-  case object IConstM1 extends BytecodeInstruction
-  case object IConst0 extends BytecodeInstruction
-  case object IConst1 extends BytecodeInstruction
-  case object IConst2 extends BytecodeInstruction
-  case object IConst3 extends BytecodeInstruction
-  case object IConst4 extends BytecodeInstruction
-  case object IConst5 extends BytecodeInstruction
-  case object LConst0 extends BytecodeInstruction
-  case object LConst1 extends BytecodeInstruction
-  case object FConst0 extends BytecodeInstruction
-  case object FConst1 extends BytecodeInstruction
-  case object FConst2 extends BytecodeInstruction
-  case object DConst0 extends BytecodeInstruction
-  case object DConst1 extends BytecodeInstruction
+  case object Nop extends BytecodeInstruction {override def apply(c: CodeBuilder) = c.nop()}
+  case object AConstNull extends BytecodeInstruction {override def apply(c: CodeBuilder) = c.aconst_null()}
+  case object IConstM1 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c.iconst_m1() }
+  case object IConst0 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c.iconst_0() }
+  case object IConst1 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c.iconst_1() }
+  case object IConst2 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c.iconst_2() }
+  case object IConst3 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c.iconst_3() }
+  case object IConst4 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c.iconst_4() }
+  case object IConst5 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c.iconst_5() }
+  case object LConst0 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c.lconst_0() }
+  case object LConst1 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c.lconst_1() }
+  case object FConst0 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c.fconst_0() }
+  case object FConst1 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c.fconst_1() }
+  case object FConst2 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object DConst0 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object DConst1 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
 
   // ==========================================
   // 2. Push & Constant Pool (푸시 및 상수 참조)
   // ==========================================
-  case class BiPush(value: Byte) extends BytecodeInstruction
-  case class SiPush(value: Short) extends BytecodeInstruction
-  case class Ldc(index: Int) extends BytecodeInstruction
-  case class LdcW(index: Int) extends BytecodeInstruction
-  case class Ldc2W(index: Int) extends BytecodeInstruction
+  case class BiPush(value: Byte) extends BytecodeInstruction  {override def apply(c: CodeBuilder) = c. }
+  case class SiPush(value: Short) extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case class Ldc(index: Int) extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case class LdcW(index: Int) extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case class Ldc2W(index: Int) extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
 
   // ==========================================
   // 3. Loads (로컬 변수 로드)
   // ==========================================
-  case class ILoad(index: Int) extends BytecodeInstruction
-  case class LLoad(index: Int) extends BytecodeInstruction
-  case class FLoad(index: Int) extends BytecodeInstruction
-  case class DLoad(index: Int) extends BytecodeInstruction
-  case class ALoad(index: Int) extends BytecodeInstruction
+  case class ILoad(index: Int) extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case class LLoad(index: Int) extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case class FLoad(index: Int) extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case class DLoad(index: Int) extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case class ALoad(index: Int) extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
 
-  case object ILoad0 extends BytecodeInstruction
-  case object ILoad1 extends BytecodeInstruction
-  case object ILoad2 extends BytecodeInstruction
-  case object ILoad3 extends BytecodeInstruction
+  case object ILoad0 extends BytecodeInstruction  {override def apply(c: CodeBuilder) = c. }
+  case object ILoad1 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object ILoad2 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object ILoad3 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
 
-  case object LLoad0 extends BytecodeInstruction
-  case object LLoad1 extends BytecodeInstruction
-  case object LLoad2 extends BytecodeInstruction
-  case object LLoad3 extends BytecodeInstruction
+  case object LLoad0 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object LLoad1 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object LLoad2 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object LLoad3 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
 
-  case object FLoad0 extends BytecodeInstruction
-  case object FLoad1 extends BytecodeInstruction
-  case object FLoad2 extends BytecodeInstruction
-  case object FLoad3 extends BytecodeInstruction
+  case object FLoad0 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object FLoad1 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object FLoad2 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object FLoad3 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
 
-  case object DLoad0 extends BytecodeInstruction
-  case object DLoad1 extends BytecodeInstruction
-  case object DLoad2 extends BytecodeInstruction
-  case object DLoad3 extends BytecodeInstruction
+  case object DLoad0 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object DLoad1 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object DLoad2 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object DLoad3 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
 
-  case object ALoad0 extends BytecodeInstruction
-  case object ALoad1 extends BytecodeInstruction
-  case object ALoad2 extends BytecodeInstruction
-  case object ALoad3 extends BytecodeInstruction
+  case object ALoad0 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object ALoad1 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object ALoad2 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object ALoad3 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
 
   // 배열 요소 로드
-  case object IALoad extends BytecodeInstruction
-  case object LALoad extends BytecodeInstruction
-  case object FALoad extends BytecodeInstruction
-  case object DALoad extends BytecodeInstruction
-  case object AALoad extends BytecodeInstruction
-  case object BALoad extends BytecodeInstruction
-  case object CALoad extends BytecodeInstruction
-  case object SALoad extends BytecodeInstruction
+  case object IALoad extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object LALoad extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object FALoad extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object DALoad extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object AALoad extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object BALoad extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object CALoad extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object SALoad extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
 
   // ==========================================
   // 4. Stores (로컬 변수 저장)
   // ==========================================
-  case class IStore(index: Int) extends BytecodeInstruction
-  case class LStore(index: Int) extends BytecodeInstruction
-  case class FStore(index: Int) extends BytecodeInstruction
-  case class DStore(index: Int) extends BytecodeInstruction
-  case class AStore(index: Int) extends BytecodeInstruction
+  case class IStore(index: Int) extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case class LStore(index: Int) extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case class FStore(index: Int) extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case class DStore(index: Int) extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case class AStore(index: Int) extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
 
-  case object IStore0 extends BytecodeInstruction
-  case object IStore1 extends BytecodeInstruction
-  case object IStore2 extends BytecodeInstruction
-  case object IStore3 extends BytecodeInstruction
+  case object IStore0 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object IStore1 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object IStore2 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object IStore3 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
 
-  case object LStore0 extends BytecodeInstruction
-  case object LStore1 extends BytecodeInstruction
-  case object LStore2 extends BytecodeInstruction
-  case object LStore3 extends BytecodeInstruction
+  case object LStore0 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object LStore1 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object LStore2 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object LStore3 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
 
-  case object FStore0 extends BytecodeInstruction
-  case object FStore1 extends BytecodeInstruction
-  case object FStore2 extends BytecodeInstruction
-  case object FStore3 extends BytecodeInstruction
+  case object FStore0 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object FStore1 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object FStore2 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
+  case object FStore3 extends BytecodeInstruction {override def apply(c: CodeBuilder) = c. }
 
   case object DStore0 extends BytecodeInstruction
   case object DStore1 extends BytecodeInstruction
