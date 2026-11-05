@@ -1,5 +1,6 @@
 package build
 import java.lang.classfile.*
+import java.lang.classfile.constantpool.Utf8Entry
 import java.lang.constant.{ClassDesc, MethodTypeDesc}
 import java.lang.reflect.AccessFlag
 import java.lang.constant.*
@@ -8,13 +9,15 @@ import java.lang.constant.ConstantDescs.*
 
 object ByteGen {
 
-  def genmethod(name: String, MtdFlag: ClassDesc, args: ClassDesc, accessFlag: AccessFlag): ClassBuilder = {
+  private def genmethod(name: Utf8Entry, descripter: Utf8Entry , methodFlags: Int ): ClassBuilder = {
     (mlb: ClassBuilder) => {
       mlb.withMethodBody(
         name,
-        MethodTypeDesc.of(MtdFlag, args),
-        accessFlag,
-        code => {}
+        descripter,
+        methodFlags,
+        code => {
+          
+        }
         
 
 
