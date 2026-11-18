@@ -990,15 +990,17 @@ object BytecodeCase {
   case class Goto(target: Label) extends BytecodeInstruction {
     override def apply(c: CodeBuilder): CodeBuilder = c.goto_(target)
   }
-  
+  /*
   case class Jsr(target: Label) extends BytecodeInstruction {
-    throw Exception("Opcode jsr didn't using on after Java 6")
+    throw Exception("Opcode jsr didn't use after Java 6")
   }
 
 
   case class Ret(index: Int) extends BytecodeInstruction {
     throw Exception("Opcode ret didn't using on after Java 6")
   }
+  
+   */
 
    
   case class TableSwitch(defaultTarget: Label, low: Int, high: Int, targets: java.util.List[SwitchCase]) extends BytecodeInstruction {
@@ -1135,12 +1137,12 @@ object BytecodeCase {
   } // Classfile handles jumps
 /*
   case class JsrW(target: Label) extends BytecodeInstruction {
-    override def apply(c: CodeBuilder): CodeBuilder = c.jsr(target)
   }
 */
   // ==========================================
   // 13. Reserved / Debug (예약된 명령어)
   // ==========================================
+  /*
   case object Breakpoint extends BytecodeInstruction {
     throw Exception("This is not valid opcode for standard .class file")
   }
@@ -1152,5 +1154,7 @@ object BytecodeCase {
   case object ImpDep2 extends BytecodeInstruction {
     throw Exception("This is not valid opcode for tandard .class file")
   }
+  
+   */
 
 }
