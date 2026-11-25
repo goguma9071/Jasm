@@ -8,7 +8,8 @@ lazy val root = rootProject
       //You can add library dependencies here, for example,
       //"org.scalatest" %% "scalatest" % "3.2.19" % Test,
       //"org.scalameta" %% "munit" % "1.2.3" % Test
-        "org.apache.commons" % "commons-math3" % "3.6.1" // Source: https://mvnrepository.com/artifact/org.apache.commons/commons-math3
+        "org.apache.commons" % "commons-math3" % "3.6.1", // Source: https://mvnrepository.com/artifact/org.apache.commons/commons-math3
+        "org.antlr" % "antlr4-runtime" % "4.13.2"
     ),
     libraryDependencies += "com.lihaoyi" %% "os-lib" % "0.11.9-M8",
     libraryDependencies += "asm" % "asm" % "3.3.1", //asm

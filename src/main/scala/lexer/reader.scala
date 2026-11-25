@@ -1,18 +1,19 @@
 package lexer
 
+import J.BytecodeCase.IAdd
+
 import io.Source
 import scala.collection.mutable
 import os.*
-import J.Token
+import J.{BytecodeCase, Token}
 
-final val lineCount = getLines().count(_ => true) // 라인 읽기
+import scala.collection.mutable.ListBuffer
 
-val fileAddr: String = 
+
 
 class reader(val fileAddr: String) {
   
-  final val bytetoken = new Token
-  final val lineCount = getLines().count(_ => true) // 라인 읽기
+  private val lineCount = getLines().count(_ => true) // 라인 읽기
   var pointer = 0
 
   def read(): Any = {
@@ -35,8 +36,16 @@ class reader(val fileAddr: String) {
   }
 
   def parse(): Unit = {
-    for (i <- lineCount) {
-      val c = getLines()
+    var i = 0
+    while i < lineCount do {
+      i += 1
+      val c = getLines().split("")
+      val list = mutable.ListBuffer.empty[Any]
+      
+      c.array(1) match {
+        case "iadd" => list += IAdd
+      } 
+      
       
     }
   }

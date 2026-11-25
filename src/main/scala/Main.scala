@@ -1,4 +1,4 @@
-import lexer.{LexerMain, reader,lexer}
+import lexer._
 import os.{Path, RelPath}
 object Main {
   def main(args: Array[String]): Unit = {
@@ -11,12 +11,11 @@ object Main {
     args.array(1) match {
       case "compile" =>
       args.array(2) match {
-        case "-f" => //todo -> method to read file
+        case "-f" => reader(args.array(3)).parse() //todo -> method to read file 
         case "-dir" => // todo -> method to folder
       }
       case _ => println("Unknown commands. -help for Help")
       case "help" => println("Jasm compiler " + version + " - for more information -> https://www.github.com/goguma9071/Jasm" + System.lineSeparator() + " compile [-f, -dir ][path] " )
-
 
     }
   }
